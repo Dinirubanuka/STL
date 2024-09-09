@@ -14,13 +14,13 @@ public class CustomerService {
     private final CustomerRepository repository;
     private final CustomerMapper mapper;
 
-    public String createCustomer(CustomerRequest request) {
+    public Long createCustomer(CustomerRequest request) {
         var customer = this.repository.save(mapper.toCustomer(request));
         return customer.getId();
     }
 
     public Customer getCustomer(String nic) {
-        Customer customer = this.repository.findById(nic).orElseThrow(()-> new UserNotFoundException("User Not Found!"));
+        Customer customer = this.repository.findByNIC(nic).orElseThrow(()-> new UserNotFoundException("User Not Found!"));
         return customer;
     }
 //    public String createCustomer(@Valid CustomerRequest request) {

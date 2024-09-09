@@ -17,7 +17,7 @@ public class CustomerController {
     private final CustomerService service;
 
     @PostMapping
-    public ResponseEntity<String> createCustomer(
+    public ResponseEntity<Long> createCustomer(
             @RequestBody @Valid CustomerRequest request
     ) {
         return ResponseEntity.ok(this.service.createCustomer(request));
@@ -27,6 +27,5 @@ public class CustomerController {
     public ResponseEntity<Customer> getCustomer(@RequestBody String NIC) {
         return ResponseEntity.ok(this.service.getCustomer(NIC));
     }
-
 
 }
