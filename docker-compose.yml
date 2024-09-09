@@ -37,7 +37,6 @@ services:
     networks:
       - microservices-net
 
-
   mongo:
     container_name: ms_mongo_db
     image: mongo
