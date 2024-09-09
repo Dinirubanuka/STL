@@ -1,4 +1,4 @@
-package com.stl.customer.controller;
+package com.stl.customer.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;

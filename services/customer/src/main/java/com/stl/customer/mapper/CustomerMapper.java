@@ -1,6 +1,6 @@
-package com.stl.customer.service;
+package com.stl.customer.mapper;
 
-import com.stl.customer.controller.CustomerRequest;
+import com.stl.customer.dto.request.CustomerRequest;
 import com.stl.customer.entity.Customer;
 import org.springframework.stereotype.Component;
 

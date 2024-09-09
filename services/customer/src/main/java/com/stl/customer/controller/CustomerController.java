@@ -1,10 +1,13 @@
 package com.stl.customer.controller;
 
+import com.stl.customer.dto.request.CustomerRequest;
+import com.stl.customer.dto.response.ApiResponse;
 import com.stl.customer.entity.Customer;
 import com.stl.customer.service.CustomerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,16 +20,18 @@ public class CustomerController {
     private final CustomerService service;
 
     @PostMapping
-    public ResponseEntity<Long> createCustomer(
+    public ResponseEntity<ApiResponse<Long>> createCustomer(
             @RequestBody @Valid CustomerRequest request
     ) {
-        return ResponseEntity.ok(this.service.createCustomer(request));
+        ApiResponse<Long> response = new ApiResponse<>(HttpStatus.CREATED.value(),this.service.createCustomer(request),"success") ;
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @GetMapping("/{nic}")
-    public ResponseEntity<Customer> getCustomer(@PathVariable String nic) {
+    public ResponseEntity<ApiResponse<Customer>> getCustomer(@PathVariable String nic) {
         System.out.println(nic);
-        return ResponseEntity.ok(this.service.getCustomer(nic));
+        ApiResponse<Customer> response = new ApiResponse<>(HttpStatus.OK.value(),this.service.getCustomer(nic),"success");
+        return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
 }
