@@ -23,9 +23,10 @@ public class CustomerController {
         return ResponseEntity.ok(this.service.createCustomer(request));
     }
 
-    @GetMapping
-    public ResponseEntity<Customer> getCustomer(@RequestBody String NIC) {
-        return ResponseEntity.ok(this.service.getCustomer(NIC));
+    @GetMapping("/{nic}")
+    public ResponseEntity<Customer> getCustomer(@PathVariable String nic) {
+        System.out.println(nic);
+        return ResponseEntity.ok(this.service.getCustomer(nic));
     }
 
 }
