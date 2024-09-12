@@ -1,6 +1,6 @@
 package com.stl.telco_services.controller;
 
-public record dataAddOnRequest(
+public record DataAddOnRequest(
         Long customerId,
         Integer dataValue,
         Integer validityPeriod,

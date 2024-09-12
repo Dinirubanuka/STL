@@ -13,14 +13,7 @@ public class Rate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "data_id")
-    private Package dataPackage;
-
-    @ManyToOne
-    @JoinColumn(name = "duration_id")
-    private Duration duration;
-
+    private String data_value;
+    private String duration;
     private double rate;
 }
