@@ -19,6 +19,7 @@ public class Telco {
 
     @GetMapping("/{nic}")
     public ResponseEntity<Object> getCustomerDetails(@PathVariable("nic") String nic){
+        System.out.println(nic);
         return ResponseEntity.ok(this.service.getCutomerDetails(nic));
     }
 
