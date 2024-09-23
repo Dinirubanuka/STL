@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Snackbar, Alert, Box, Typography, CircularProgress, Link } from "@mui/material";
 import ListItem from "./ListItem"; // Assuming ListItem is a presentational component

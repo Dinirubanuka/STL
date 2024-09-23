@@ -1,13 +1,14 @@
+"use client";
+
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { Avatar, Typography } from '@mui/material';
-import SectionTitle from '../../components/General user/Profile/SectionTitle';
+import SectionTitle from '../../components/profile/SectionTitle';
 import PersonIcon from '@mui/icons-material/Person';
 import Badge from '@mui/material/Badge';
 import Stack from '@mui/material/Stack';
-import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
-import theme from '../../components/General user/theme';
+import theme from '../../components/theme/theme';
 
 function ProfilePage() {
   const [profileData, setProfileData] = React.useState({
@@ -46,7 +47,6 @@ function ProfilePage() {
           </Paper>
           <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 2, boxShadow: 'none' }} className='rounded-bl-xl shadow-md'>
             <Stack justifyContent='center' alignItems='center' direction='row'>
-              <QrCodeScannerIcon className='text-zinc-500 mr-2' />
               <SectionTitle titleText={"Your Information"} />
             </Stack>
             {/* Additional content for user's information can go here */}
