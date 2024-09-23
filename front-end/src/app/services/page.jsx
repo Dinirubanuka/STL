@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import { Typography, Box, CircularProgress, Snackbar, Alert } from "@mui/material";
 
