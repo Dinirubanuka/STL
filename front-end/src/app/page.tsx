@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react";
 import { Box, Tab, Tabs, Stack } from "@mui/material";
 import { useState } from "react";
