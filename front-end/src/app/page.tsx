@@ -6,8 +6,8 @@ import BillList from "../app/billList/page";
 import Services from "../app/services/page";
 // import ChatSurpport from "../../components/ChatApp/ChatSurpport";
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+function TabPanel(props: { children: React.ReactNode; value: number; index: number; style?: React.CSSProperties }) {
+  const { children, value, index, style, ...other } = props;
 
   return (
     <div
@@ -17,7 +17,11 @@ function TabPanel(props) {
       aria-labelledby={`tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && (
+        <Box sx={{ p: 3, ...style }}>
+          {children}
+        </Box>
+      )}
     </div>
   );
 }
@@ -25,7 +29,7 @@ function TabPanel(props) {
 export default function Home() {
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
