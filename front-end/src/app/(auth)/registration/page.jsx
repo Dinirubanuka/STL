@@ -11,19 +11,15 @@ import { Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link2 from "@mui/material/Link";
 
-function Login() {
+function Registration() {
   const defaultTheme = createTheme();
 
   // UI-specific variables and placeholders
   const formWidth = "50%"; // Adjust the form width if necessary
   const errMsg = ""; // Placeholder for error message
   const handleClose = () => {}; // Placeholder for closing the Snackbar
-  const toggleCheck = () => {}; // Placeholder for checkbox toggle
-  const check = false; // Checkbox state
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -80,14 +76,14 @@ function Login() {
                 className="font-extrabold text-black"
                 sx={{ fontFamily: "inter" }}
               >
-                Login to your account
+                Create Your Account
               </Typography>
               <Typography
                 component="h1"
                 variant="h5"
                 className="font-light text-black"
               >
-                Welcome!
+                Welcome to Sri-Care!
               </Typography>
             </Stack>
 
@@ -109,9 +105,26 @@ function Login() {
                 margin="normal"
                 required
                 fullWidth
+                type="email"
+                id="email"
+                label="Email Address"
+                autoComplete="on"
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
                 type="password"
                 id="password"
                 label="Password"
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                type="password"
+                id="confirm-password"
+                label="Confirm Password"
               />
               <Button
                 type="submit"
@@ -120,12 +133,12 @@ function Login() {
                 sx={{ mt: 3, mb: 2, padding: "10px" }}
                 className="bg-slate-900 hover:bg-blue-700"
               >
-                Sign In
+                Sign Up
               </Button>
               <Grid container>
                 <Grid item>
-                  <Link2 href="/registration" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                  <Link2 href="/login" variant="body2">
+                    {"Already have an account? Sign In"}
                   </Link2>
                 </Grid>
               </Grid>
@@ -138,4 +151,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Registration;
