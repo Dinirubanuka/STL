@@ -11,9 +11,9 @@ import { Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link2 from "@mui/material/Link";
+import Link from "@mui/material/Link";
 
-function Registration() {
+function Register() {
   const defaultTheme = createTheme();
 
   // UI-specific variables and placeholders
@@ -42,15 +42,7 @@ function Registration() {
         </Alert>
       </Snackbar>
       <Grid container component="main" sx={{ height: "100vh" }}>
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={12}
-          component={Box}
-          elevation={6}
-          square
-        >
+        <Grid item xs={12} sm={12} md={12} component={Box} elevation={6} square>
           <Typography
             sx={{ margin: "20px", fontFamily: "inter" }}
             component="h1"
@@ -83,22 +75,27 @@ function Registration() {
                 variant="h5"
                 className="font-light text-black"
               >
-                Welcome to Sri-Care!
+                Welcome aboard!
               </Typography>
             </Stack>
 
-            <Box
-              component="form"
-              noValidate
-              sx={{ mt: 1, width: formWidth }}
-            >
+            <Box component="form" noValidate sx={{ mt: 1, width: formWidth }}>
               <TextField
                 margin="normal"
                 required
                 fullWidth
                 type="text"
-                id="username"
-                label="Username"
+                id="firstName"
+                label="First Name"
+                autoComplete="on"
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                type="text"
+                id="lastName"
+                label="Last Name"
                 autoComplete="on"
               />
               <TextField
@@ -107,8 +104,16 @@ function Registration() {
                 fullWidth
                 type="email"
                 id="email"
-                label="Email Address"
+                label="Email"
                 autoComplete="on"
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                type="text"
+                id="mobileNumber"
+                label="Mobile Number"
               />
               <TextField
                 margin="normal"
@@ -123,7 +128,7 @@ function Registration() {
                 required
                 fullWidth
                 type="password"
-                id="confirm-password"
+                id="confirmPassword"
                 label="Confirm Password"
               />
               <Button
@@ -133,13 +138,13 @@ function Registration() {
                 sx={{ mt: 3, mb: 2, padding: "10px" }}
                 className="bg-slate-900 hover:bg-blue-700"
               >
-                Sign Up
+                Register
               </Button>
               <Grid container>
                 <Grid item>
-                  <Link2 href="/login" variant="body2">
+                  <Link href="/login" variant="body2">
                     {"Already have an account? Sign In"}
-                  </Link2>
+                  </Link>
                 </Grid>
               </Grid>
             </Box>
@@ -151,4 +156,4 @@ function Registration() {
   );
 }
 
-export default Registration;
+export default Register;
