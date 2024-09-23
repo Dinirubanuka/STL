@@ -1,36 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Typography, Box, CircularProgress, Snackbar, Alert } from "@mui/material";
-import { useParams } from "react-router-dom";
+
+const mockServices = [
+  { id: 1, name: "Service A", description: "Description for Service A" },
+  { id: 2, name: "Service B", description: "Description for Service B" },
+  { id: 3, name: "Service C", description: "Description for Service C" },
+];
 
 const Services = () => {
-  const { userId } = useParams();
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [services] = useState(mockServices); // Use mock data
+  const [loading] = useState(false); // Simulate loading state
   const [errorMsg, setErrorMsg] = useState("");
-  const [success, setSuccess] = useState(false);
-
-  // Mock data for services (replace this with your actual data fetching logic)
-  const mockServices = [
-    { id: 1, name: "Service 1", description: "Description for Service 1" },
-    { id: 2, name: "Service 2", description: "Description for Service 2" },
-    { id: 3, name: "Service 3", description: "Description for Service 3" },
-  ];
-
-  useEffect(() => {
-    setLoading(true);
-    setErrorMsg("");
-    try {
-      // Simulate fetching services (replace with actual API call if needed)
-      setTimeout(() => {
-        setServices(mockServices);
-        setSuccess(true);
-      }, 1000); // Simulating a 1 second API call delay
-    } catch (err) {
-      setErrorMsg("Failed to fetch services");
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+  const [success] = useState(false); // Simulate success state
 
   return (
     <>
@@ -56,12 +37,10 @@ const Services = () => {
             <Typography variant="h4" color="secondary" align="center">
               Services
             </Typography>
-            {services?.map((service) => (
-              <Box key={service.id} sx={{ padding: 2, border: "1px solid #ccc", margin: 2 }}>
+            {services.map((service) => (
+              <Box key={service.id} sx={{ margin: 2, padding: 2, border: '1px solid #ccc', borderRadius: '4px' }}>
                 <Typography variant="h6">{service.name}</Typography>
-                <Typography variant="body2" color="textSecondary">
-                  {service.description}
-                </Typography>
+                <Typography>{service.description}</Typography>
               </Box>
             ))}
           </>
@@ -95,7 +74,8 @@ const Services = () => {
           }}
           severity="success"
         >
-          Services loaded successfully!
+          {errorMsg}
+          {/* on success */}
         </Alert>
       </Snackbar>
     </>
