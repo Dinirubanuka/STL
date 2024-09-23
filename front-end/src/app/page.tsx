@@ -1,14 +1,10 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import { Tab, Tabs } from "@mui/material";
+import { Box, Tab, Tabs, Stack } from "@mui/material";
 import { useState } from "react";
-import Stack from "@mui/material/Stack";
 import Profile from "../app/profile/page";
-// import ChatSurpport from "../../components/ChatApp/ChatSurpport";
 import BillList from "../app/billList/page";
-import Services from "../Billing/Services";
-
-
+import Services from "../app/services/page";
+// import ChatSurpport from "../../components/ChatApp/ChatSurpport";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -26,15 +22,17 @@ function TabPanel(props) {
   );
 }
 
-
 export default function Home() {
+  const [value, setValue] = useState(0);
 
-
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <div>
       <Box component="main" sx={{ flexGrow: 1, p: 3, height: "100vh" }}>
-        <Box >
+        <Box>
           <Stack direction="row" justifyContent="space-between">
             <h2 className="text-3xl font-bold">SriCare Home Page</h2>
           </Stack>
@@ -42,29 +40,16 @@ export default function Home() {
           <Tabs
             value={value}
             onChange={handleChange}
-            aria-label="lab API tabs example"
-            sx={{ borderColor: "divider" }}
+            aria-label="Home Tabs"
             centered
+            sx={{ borderColor: "divider" }}
           >
-            <Tab
-              label="Profile" 
-              sx={{ fontWeight: "bold" }}
-            />
-
-            <Tab
-              label='Billing'
-              sx={{ fontWeight: "bold" }}
-            />
-
-            <Tab
-              label='Services'
-              sx={{ fontWeight: "bold" }}
-            />
-            <Tab
-              label='Customer Support'
-              sx={{ fontWeight: "bold" }}
-            />
+            <Tab label="Profile" sx={{ fontWeight: "bold" }} />
+            <Tab label="Billing" sx={{ fontWeight: "bold" }} />
+            <Tab label="Services" sx={{ fontWeight: "bold" }} />
+            <Tab label="Customer Support" sx={{ fontWeight: "bold" }} />
           </Tabs>
+
           <TabPanel value={value} index={0} style={{ overflowY: "auto", height: "80vh" }}>
             <Profile />
           </TabPanel>
