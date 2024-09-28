@@ -1,7 +1,9 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Typography, Box, CircularProgress, Snackbar, Alert } from "@mui/material";
+import {useServices} from "@/api/useServices";
+import { get } from "http";
 
 const mockServices = [
   { id: 1, name: "Service A", description: "Description for Service A" },
@@ -14,6 +16,21 @@ const Services = () => {
   const [loading] = useState(false); // Simulate loading state
   const [errorMsg, setErrorMsg] = useState("");
   const [success] = useState(false); // Simulate success state
+
+  const { getServices } = useServices();
+  const getService = async () => {
+    try {
+      const response = await getServices();
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+      throw new Error('An error occurred while fetching services');
+    }
+  }
+
+  useEffect(() => {
+    getService();
+  }, []);
 
   return (
     <>
