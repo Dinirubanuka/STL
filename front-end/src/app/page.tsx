@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import * as React from "react";
 import { Box, Tab, Tabs, Stack } from "@mui/material";
@@ -40,7 +40,7 @@ export default function Home() {
       <Box component="main" sx={{ flexGrow: 1, p: 3, height: "100vh" }}>
         <Box>
           <Stack direction="row" justifyContent="space-between">
-            <h2 className="text-3xl font-bold">SriCare Home Page</h2>
+            <h2 className="text-3xl font-bold">Sri-Care Home Page</h2>
           </Stack>
 
           <Tabs
