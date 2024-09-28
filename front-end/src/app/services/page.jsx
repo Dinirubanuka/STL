@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Typography, Box, CircularProgress, Snackbar, Alert } from "@mui/material";
 import {useServices} from "@/api/useServices";
-import { get } from "http";
+
 
 const mockServices = [
   { id: 1, name: "Service A", description: "Description for Service A" },
@@ -12,10 +12,22 @@ const mockServices = [
 ];
 
 const Services = () => {
-  const [services] = useState(mockServices); // Use mock data
+  const [services, setServices] = useState(mockServices); // Use mock data
   const [loading] = useState(false); // Simulate loading state
   const [errorMsg, setErrorMsg] = useState("");
-  const [success] = useState(false); // Simulate success state
+  const [success, setSuccess] = useState(false); // Simulate success state
+
+  // Toggle activation for a service
+  const toggleServiceActivation = (id) => {
+    const updatedServices = services.map((service) =>
+      service.id === id
+        ? { ...service, active: !service.active }
+        : service
+    );
+    setServices(updatedServices);
+    setSuccess(true);
+    setErrorMsg("Service status changed successfully!");
+  };
 
   const { getServices } = useServices();
   const getService = async () => {
@@ -76,25 +88,19 @@ const Services = () => {
         </Alert>
       </Snackbar>
 
+      {/* Success Snackbar */}
       <Snackbar
         open={success}
         autoHideDuration={5000}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        onClose={() => {
-          setSuccess(false);
-          setErrorMsg("");
-        }}
+        onClose={() => setSuccess(false)}
       >
         <Alert
           autoHideDuration={5000}
-          onClose={() => {
-            setSuccess(false);
-            setErrorMsg("");
-          }}
+          onClose={() => setSuccess(false)}
           severity="success"
         >
           {errorMsg}
-          {/* on success */}
         </Alert>
       </Snackbar>
     </>
