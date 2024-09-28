@@ -27,6 +27,11 @@ public class CustomerController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    @GetMapping("/test")
+    public ResponseEntity<ApiResponse<String>> testController(){
+        return new ResponseEntity<>(new ApiResponse<>(HttpStatus.OK.value(),"THIS IS A TEST","success"),HttpStatus.OK);
+    }
+
     @GetMapping("/{nic}")
     public ResponseEntity<ApiResponse<Customer>> getCustomer(@PathVariable String nic) {
         System.out.println(nic);
