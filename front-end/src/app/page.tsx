@@ -6,7 +6,7 @@ import { useState } from "react";
 import Profile from "../app/profile/page";
 import BillList from "../app/billList/page";
 import Services from "../app/services/page";
-// import ChatSurpport from "../../components/ChatApp/ChatSurpport";
+import Packages from "../app/packages/page";
 
 function TabPanel(props: { children: React.ReactNode; value: number; index: number; style?: React.CSSProperties }) {
   const { children, value, index, style, ...other } = props;
@@ -53,7 +53,7 @@ export default function Home() {
             <Tab label="Profile" sx={{ fontWeight: "bold" }} />
             <Tab label="Billing" sx={{ fontWeight: "bold" }} />
             <Tab label="Services" sx={{ fontWeight: "bold" }} />
-            <Tab label="Customer Support" sx={{ fontWeight: "bold" }} />
+            <Tab label="Packages" sx={{ fontWeight: "bold" }} />
           </Tabs>
 
           <TabPanel value={value} index={0} style={{ overflowY: "auto", height: "80vh" }}>
@@ -65,9 +65,9 @@ export default function Home() {
           <TabPanel value={value} index={2} style={{ overflowY: "auto", height: "80vh" }}>
             <Services />
           </TabPanel>
-          {/* <TabPanel value={value} index={3} style={{ overflowY: "auto", height: "80vh" }}>
-            <ChatSurpport />
-          </TabPanel> */}
+          <TabPanel value={value} index={3} style={{ overflowY: "auto", height: "80vh" }}>
+            <Packages />
+          </TabPanel>
         </Box>
       </Box>
     </div>
