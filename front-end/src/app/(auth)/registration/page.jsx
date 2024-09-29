@@ -157,3 +157,46 @@ function Register() {
 }
 
 export default Register;
+
+
+// const {
+//   page,
+//   setPage,
+//   title,
+//   subtitle,
+//   handleSubmit,
+//   getValues,
+//   setValue
+// } = useFormContext();
+// const [errMsg, setErrMsg] = useState('');
+// const handleClose = () => {
+//   setErrMsg('');
+// };
+
+// const onSubmit = async (e) => {
+//   if(page === 2){
+//     const data = getValues();
+//     try{
+//       const response = await axios.post('register', data);
+//       if(response.data.message === 'User added successfully'){
+//         setPage(page + 1);
+//       }else{
+//         setErrMsg(response.data.message);
+//       }
+//     }catch(err){
+//       setErrMsg(err.response.data.message);
+//     }
+//   }else{
+//     setPage(page + 1);
+//   }
+
+    
+// };
+
+// const handlePrev = () => setPage(page - 1);
+// const handleNext = () => setPage(page + 1);
+
+// const navigate = useNavigate();
+// const handleButtonClick = () => {
+//   navigate("/");
+// };
