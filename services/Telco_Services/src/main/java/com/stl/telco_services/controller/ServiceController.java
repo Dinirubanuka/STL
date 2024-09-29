@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("sri-tel/api/v1/service")
+@RequestMapping("/api/v1/telco/services")
 public class ServiceController {
 
     @Autowired
@@ -42,6 +42,7 @@ public class ServiceController {
     }
 
     @GetMapping("/viewAll")
+
     public List<TelcoService> viewTelcoService() {
         return serviceService.getAllServices();
     }

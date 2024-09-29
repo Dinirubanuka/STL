@@ -12,7 +12,7 @@ const mockServices = [
 ];
 
 const Services = () => {
-  const [services, setServices] = useState(mockServices); // Use mock data
+  const [services, setServices] = useState([]); // Use mock data
   const [loading] = useState(false); // Simulate loading state
   const [errorMsg, setErrorMsg] = useState("");
   const [success, setSuccess] = useState(false); // Simulate success state
@@ -34,6 +34,7 @@ const Services = () => {
     try {
       const response = await getServices();
       console.log(response);
+      setServices(response);
     } catch (error) {
       console.error(error);
       throw new Error('An error occurred while fetching services');
@@ -68,7 +69,7 @@ const Services = () => {
             <Typography variant="h4" color="secondary" align="center">
               Services
             </Typography>
-            {services.map((service) => (
+            {services && services.map((service) => (
               <Box key={service.id} sx={{ margin: 2, padding: 2, border: '1px solid #ccc', borderRadius: '4px' }}>
                 <Typography variant="h6">{service.name}</Typography>
                 <Typography>{service.description}</Typography>

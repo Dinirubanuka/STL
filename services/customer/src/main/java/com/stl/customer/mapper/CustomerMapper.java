@@ -15,9 +15,8 @@ public class CustomerMapper {
                 .id(request.id())
                 .firstname(request.firstname())
                 .lastname(request.lastname())
-                .email(request.email())
+                .mobileNumber(request.mobileNumber())
                 .NIC(request.NIC())
-                .password(request.password())
                 .build();
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/sri-tel/api/v1/customer-subscription")
+@RequestMapping("/api/v1/telco/customer-subscription")
 public class CustomerSubscriptionController {
 
     @Autowired

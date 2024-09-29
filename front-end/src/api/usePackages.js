@@ -2,11 +2,11 @@ import axios from "axios";
 
 const API_URL = 'http://localhost:8222';
 
-export const useServices = () => {
+export const usePackages= () => {
 
-    const getServices = async () => {
+    const getPackages = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/v1/telco/services/viewAll`);
+            const response = await axios.get(`${API_URL}/api/v1/telco/packages/viewAll`);
             return response.data;
         } catch (error) {
             throw new Error('An error occurred while fetching services');
@@ -14,9 +14,9 @@ export const useServices = () => {
     };
 
 
-    const getSubscribedServices = async (id) => {
+    const getActivatePackages = async (id) => {
         try {
-            const response = await axios.get(`${API_URL}/api/v1/telco/services/viewSubscribedServices/${id}`);
+            const response = await axios.get(`${API_URL}/api/v1/telco/packages/viewActivePackages/${id}`);
             return response.data;
         } catch (error) {
             throw new Error('An error occurred while fetching services');
@@ -27,11 +27,13 @@ export const useServices = () => {
         try {
           const response = await axios({
             method: "post",
-            url: `${API_URL}/api/v1/telco/services/add`,
+            url: `${API_URL}/api/v1/telco/packages/add`,
             data: {
               name: data.name,
               price: data.price,
-              status: data.status,
+              size: data.size,
+              payType: data.payType,
+              serviceType:data.serviceType
             },
             withCredentials: true,
           })
@@ -42,14 +44,14 @@ export const useServices = () => {
         }
       };
 
-      const subscribe = async (data) => {
+      const activate = async (data) => {
         try {
           const response = await axios({
             method: "post",
-            url: `${API_URL}/api/v1/telco/services/subscribe`,
+            url: `${API_URL}/api/v1/telco/packages/activate`,
             data: {
               customerId: data.customerId,
-              ServiceId: data.serviceId,
+              packageId: data.packageId,
             },
             withCredentials: true,
           })
@@ -59,13 +61,13 @@ export const useServices = () => {
           throw new Error(error.response.data.error.message);
         }
       };
-      const unSubscribe = async (data) => {
+      const deactivate = async (data) => {
         try {
           const response = await axios({
             method: "post",
-            url: `${API_URL}/api/v1/telco/services/unsubscribe`,
+            url: `${API_URL}/api/v1/telco/packages/deactivate`,
             data: {
-              serviceSubscriptionId: data.serviceSubscriptionId,
+              packageActivationId: data.packageActivationId,
             },
             withCredentials: true,
           })
@@ -77,11 +79,11 @@ export const useServices = () => {
       };
     
     return {
-        getServices,
-        getSubscribedServices,
+        getPackages,
+        getActivatePackages,
         add,
-        subscribe,
-        unSubscribe,
+        activate,
+        deactivate
     };  
 
 }

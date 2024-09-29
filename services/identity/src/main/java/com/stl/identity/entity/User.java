@@ -1,9 +1,6 @@
-package com.stl.customer.entity;
+package com.stl.identity.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @AllArgsConstructor
@@ -12,12 +9,21 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-public class Customer {
+@Table(name="users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstname;
     private String lastname;
+
+    @Column(nullable = false ,unique = true)
+    private String email;
     private String NIC;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false,unique = true)
     private String mobileNumber;
 }

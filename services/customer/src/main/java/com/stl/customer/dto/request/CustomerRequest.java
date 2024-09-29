@@ -10,12 +10,10 @@ public record CustomerRequest (
         @NotNull(message = "Customer firstname is required")
         String lastname,
         @NotNull(message = "Customer Email is required")
-        @Email(message = "Customer Email is not a valid email address")
-        String email,
         @NotNull(message = "NIC cannot be empty")
         String NIC,
-        @NotNull(message = "Password cannot be empty")
-        String password
+        @NotNull(message = "Mobile number cant be empty")
+        String mobileNumber
         //password and confirm password validation done by the font end
 ){
 }

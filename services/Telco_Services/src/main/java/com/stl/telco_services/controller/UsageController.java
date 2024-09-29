@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("sri-tel/api/v1/usage")
+@RequestMapping("/api/v1/telco/usage")
 public class UsageController {
     @Autowired
     private UsageService usageService;

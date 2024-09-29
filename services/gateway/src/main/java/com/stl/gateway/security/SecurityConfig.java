@@ -30,6 +30,7 @@ public class SecurityConfig {
                         .anyExchange()
                         .permitAll()
                 )
+//                .oauth2ResourceServer(oauth2->oauth2.jwt(Customizer.withDefaults()))
                 .cors(withDefaults());
         return serverHttpSecurity.build();
     }

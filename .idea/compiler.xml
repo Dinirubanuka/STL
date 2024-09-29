@@ -11,6 +11,7 @@
         <module name="Telco_Services" />
         <module name="payment_gateway" />
         <module name="discovery" />
+        <module name="identity" />
         <module name="gateway" />
         <module name="customer" />
       </profile>
@@ -23,6 +24,7 @@
       <module name="customer" options="-parameters" />
       <module name="discovery" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="identity" options="-parameters" />
       <module name="payment_gateway" options="-parameters" />
     </option>
   </component>

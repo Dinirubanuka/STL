@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "sri-tel/api/v1/customer")
+@RequestMapping(value = "/api/v1/telco/customer")
 public class CustomerController {
 
     @Autowired
