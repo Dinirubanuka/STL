@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
         <module name="Telco_Services" />
+        <module name="notification" />
         <module name="payment_gateway" />
         <module name="discovery" />
         <module name="identity" />
@@ -25,6 +26,7 @@
       <module name="discovery" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="identity" options="-parameters" />
+      <module name="notification" options="-parameters" />
       <module name="payment_gateway" options="-parameters" />
     </option>
   </component>

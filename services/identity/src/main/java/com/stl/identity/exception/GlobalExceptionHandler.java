@@ -1,7 +1,7 @@
 package com.stl.identity.exception;
 
-import com.stl.customer.dto.response.ApiError;
-import com.stl.customer.dto.response.ErrorDTO;
+import com.stl.identity.dto.response.ApiError;
+import com.stl.identity.dto.response.ErrorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

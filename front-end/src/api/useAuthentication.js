@@ -1,4 +1,5 @@
 import axios from "axios";
+import { nextTick } from "process";
 
 const API_URL = "http://localhost:8222";
 
@@ -8,12 +9,15 @@ export const useAuthentication = () => {
     try {
       const response = await axios({
         method: "post",
-        url: `${API_URL}/auth/register`,
+        url: `${API_URL}api/v1/auth/register`,
         data: {
+          firstname:data.firstname,
+          lastname:data.lastname,
+          nec:data.nec,
+          mobileNumber:data.mobileNumber,
           email: data.email,
           password: data.password,
-          otp: data.otp,
-          nic: data.nic,
+          
         },
         withCredentials: true,
       });

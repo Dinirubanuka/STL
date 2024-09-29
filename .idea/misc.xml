@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/services/Telco_Services/pom.xml" />
         <option value="$PROJECT_DIR$/services/payment_gateway/pom.xml" />
         <option value="$PROJECT_DIR$/services/identity/pom.xml" />
+        <option value="$PROJECT_DIR$/services/notification/pom.xml" />
       </list>
     </option>
   </component>
