@@ -72,7 +72,7 @@ const Services = () => {
             {services && services.map((service) => (
               <Box key={service.id} sx={{ margin: 2, padding: 2, border: '1px solid #ccc', borderRadius: '4px' }}>
                 <Typography variant="h6">{service.name}</Typography>
-                <Typography>Rs: {service.price}</Typography>
+                <Typography>from Rs: {service.price}</Typography>
                 <Typography>Status: {service.status}</Typography>
               </Box>
             ))}

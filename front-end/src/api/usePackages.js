@@ -45,6 +45,7 @@ export const usePackages= () => {
       };
 
       const activate = async (data) => {
+        console.log(data);
         try {
           const response = await axios({
             method: "post",
