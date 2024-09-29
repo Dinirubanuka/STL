@@ -1,7 +1,9 @@
 package com.stl.identity.controller;
 
+import com.stl.identity.dto.request.LoginRequestDTO;
 import com.stl.identity.dto.request.RegisterRequestDTO;
 import com.stl.identity.dto.response.ApiResponse;
+import com.stl.identity.dto.response.LoginResponseDTO;
 import com.stl.identity.dto.response.UserResponseDTO;
 import com.stl.identity.entity.User;
 import com.stl.identity.service.AuthService;
@@ -20,12 +22,19 @@ public class AuthController {
     @Autowired
     private final AuthService authService;
 
-    @PostMapping
+
+    @PostMapping("/register")
     public ResponseEntity<ApiResponse<UserResponseDTO>> register(
             @RequestBody @Valid User request
     ) {
         ApiResponse<UserResponseDTO> response = new ApiResponse<>(HttpStatus.CREATED.value(),authService.registerUser(request),"success") ;
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<ApiResponse<LoginResponseDTO>> loginUser(@Valid @RequestBody LoginRequestDTO user){
+        ApiResponse<LoginResponseDTO> response  = new ApiResponse<>(HttpStatus.OK.value(),authService.login(user),"success");
+        return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
     @GetMapping("/test")

@@ -4,4 +4,14 @@ spring:
   application:
     name: identity-service
 
+encryption:
+  salt:
+    rounds: 10
+
+
+jwt:
+  algorithm:
+    key: "THIS_IS_MY_ALGORITHM_KEY"
+  issuer: your_issuer
+  expiaryinseconds: 36000
 

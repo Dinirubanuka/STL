@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Box, Typography, Grid, Card, CardContent, CardActions, Button, Divider } from "@mui/material";
+import {usePackages} from "@/api/usePackages";
 
 const mockDataAddOns = [
   { id: 1, name: "Data Pack A", description: "10GB for $10" },
@@ -25,6 +26,30 @@ const mockRoamingAddOns = [
 ];
 
 const Packages = () => {
+  const [pacs,setPacs] = React.useState([]);
+  const { getPackages,activate } = usePackages();
+  const getService = async () => {
+    try {
+      const response = await getPackages();
+      console.log(response);
+      setPacs(response);
+    } catch (error) {
+      console.error(error);
+      throw new Error('An error occurred while fetching services');
+    }
+  }
+
+  const handleActive = (id) => {
+    console.log(id);
+    activate({customerId:1,packageId:id});
+  }
+
+  React.useEffect(() => {
+    getService();
+  }, []);
+
+
+
   const renderPackages = (packages) => (
     <Grid container spacing={3}>
       {packages.map((pkg) => (
@@ -46,12 +71,12 @@ const Packages = () => {
                 {pkg.name}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {pkg.description}
+                {pkg.size} {pkg.size<500?"GB":"minutes"} for ${pkg.price}
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" variant="contained" color="primary" fullWidth>
-                Select
+              <Button size="small" variant="contained" color="primary" fullWidth onClick={()=>handleActive(pkg.id)}>
+                Active
               </Button>
             </CardActions>
           </Card>
@@ -68,7 +93,7 @@ const Packages = () => {
           Data Add-Ons
         </Typography>
         <Divider sx={{ marginBottom: 2 }} />
-        {renderPackages(mockDataAddOns)}
+        {renderPackages(pacs)}
       </Box>
 
       {/* Voice Add-Ons Section */}

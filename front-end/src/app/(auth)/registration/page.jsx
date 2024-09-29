@@ -19,7 +19,10 @@ function Register() {
   // UI-specific variables and placeholders
   const formWidth = "50%"; // Adjust the form width if necessary
   const errMsg = ""; // Placeholder for error message
-  const handleClose = () => {}; // Placeholder for closing the Snackbar
+  const handleClose = () => {}; 
+  
+  
+  // Placeholder for closing the Snackbar
 
   return (
     <ThemeProvider theme={defaultTheme}>

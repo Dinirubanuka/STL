@@ -20,6 +20,7 @@ public class PackageController {
 
     @PostMapping("/add")
     public AnyResponse addTelcoPackage(@RequestBody RegisterPackageRequest tel_package) {
+        System.out.println("HERE I AM");
         return packageService.addPackage(tel_package);
     }
 

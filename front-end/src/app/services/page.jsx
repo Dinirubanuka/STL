@@ -33,7 +33,7 @@ const Services = () => {
   const getService = async () => {
     try {
       const response = await getServices();
-      console.log(response);
+      // console.log(response);
       setServices(response);
     } catch (error) {
       console.error(error);
@@ -72,7 +72,8 @@ const Services = () => {
             {services && services.map((service) => (
               <Box key={service.id} sx={{ margin: 2, padding: 2, border: '1px solid #ccc', borderRadius: '4px' }}>
                 <Typography variant="h6">{service.name}</Typography>
-                <Typography>{service.description}</Typography>
+                <Typography>from Rs: {service.price}</Typography>
+                <Typography>Status: {service.status}</Typography>
               </Box>
             ))}
           </>

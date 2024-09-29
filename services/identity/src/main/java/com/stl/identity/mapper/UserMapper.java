@@ -16,6 +16,7 @@ public class UserMapper {
                 .id(user.getId())
                 .firstname(user.getFirstname())
                 .lastname(user.getLastname())
+                .email(user.getEmail())
                 .mobileNumber(user.getMobileNumber())
                 .NIC(user.getNIC())
                 .build();

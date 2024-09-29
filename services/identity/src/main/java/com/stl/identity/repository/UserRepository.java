@@ -8,4 +8,7 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByNIC(String NIC);
+    Optional<User> findByMobileNumber(String mobileNumber);
+    Optional<User> findByEmail(String email);
+
 }
